@@ -8,7 +8,7 @@ navbar:
     - text: "Resume"
       href: Resume.html
     - icon: fa-envelope fa-lg
-      href: mailto:jx2371@cumc.columbia.edu
+      href: mailto:<jx2371@cumc.columbia.edu>
     - icon: fa-github fa-lg
       href: http://github.com/Demixu/
 output:

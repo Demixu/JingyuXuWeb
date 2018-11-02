@@ -1,0 +1,90 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+library(flexdashboard)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+### Boxplot of the average temperature in Aug. and Nov. between 2000-2010
+```{r results='hide'}
+library(tidyverse)
+library(viridis)
+## Loading required package: viridisLite
+library(p8105.datasets)
+library(plotly)
+library(hexbin)
+```
+
+```{r}
+  ##clean the NY NOAA data
+  NY_NOAA=ny_noaa%>%
+  janitor::clean_names()%>%
+  separate(date, into = c("year", "month", "day"), sep = "-")%>%
+  mutate(tmax = as.numeric(tmax)/10,
+         tmin = as.numeric(tmin)/10)
+```
+
+```{r}
+average_temperature=NY_NOAA%>%
+  filter(month=="08"|month=="11")%>%
+  filter(year %in% 2000:2010)%>%
+  filter(!is.na(tmax))%>%
+  select(id,year,month,tmax)%>%
+  group_by(id,month,year)%>%
+  summarize(average_temperature=mean(tmax))%>%
+  ggplot(aes(x = factor(year), y = average_temperature, fill=month)) + 
+  geom_boxplot()+
+  labs(
+    x = "the year observed",
+    y = "average temperature"
+  )+
+  viridis::scale_color_viridis(
+    name = "month", 
+    discrete = TRUE
+  ) + 
+  facet_grid(.~month)+
+  theme(legend.position = "bottom")+
+  theme(axis.text.x = element_text(face="bold",size=10, angle = 90))
+
+ggplotly(average_temperature)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### tmax vs tmin for the full dataset
+```{r}
+hex = NY_NOAA %>% 
+  ggplot(aes(x = tmin, y = tmax)) +
+   labs(
+    x = "the year observed",
+    y = "average temperature"
+  )+
+  geom_hex()
+
+ggplotly(hex)
+```
+
+### Distribution plot of snowfall values greater than 0 and less than 100 between 2000-2010
+```{r}
+library(ggridges)
+density = NY_NOAA %>%
+  filter(snow< 100, snow> 0) %>%
+  filter(year %in% 2000:2010)%>%
+  ggplot(aes(x = snow))+
+ labs(
+    x = "snowfall"
+    )+ 
+  geom_density()
+
+ggplotly(density)
+```
+
