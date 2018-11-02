@@ -13,7 +13,7 @@ library(flexdashboard)
 
 Column {data-width=650}
 -----------------------------------------------------------------------
-### Boxplot of the average temperature in Aug. and Nov. between 2000-2010
+### Boxplot of the average temperature in Aug.between 2000-2010
 ```{r results='hide'}
 library(tidyverse)
 library(viridis)
@@ -29,32 +29,19 @@ library(hexbin)
   janitor::clean_names()%>%
   separate(date, into = c("year", "month", "day"), sep = "-")%>%
   mutate(tmax = as.numeric(tmax)/10,
-         tmin = as.numeric(tmin)/10)
+         tmin = as.numeric(tmin)/10)%>%
+  filter(year%in% 2000:2010)
 ```
 
 ```{r}
-average_temperature=NY_NOAA%>%
-  filter(month=="08"|month=="11")%>%
-  filter(year %in% 2000:2010)%>%
+  NY_NOAA%>%
+  filter(month=="08")%>%
   filter(!is.na(tmax))%>%
   select(id,year,month,tmax)%>%
   group_by(id,month,year)%>%
   summarize(average_temperature=mean(tmax))%>%
-  ggplot(aes(x = factor(year), y = average_temperature, fill=month)) + 
-  geom_boxplot()+
-  labs(
-    x = "the year observed",
-    y = "average temperature"
-  )+
-  viridis::scale_color_viridis(
-    name = "month", 
-    discrete = TRUE
-  ) + 
-  facet_grid(.~month)+
-  theme(legend.position = "bottom")+
-  theme(axis.text.x = element_text(face="bold",size=10, angle = 90))
-
-ggplotly(average_temperature)
+  plot_ly(y = ~average_temperature, color = ~year, type = "box",
+          colors = "Set2")
 ```
 
 Column {data-width=350}
@@ -65,8 +52,8 @@ Column {data-width=350}
 hex = NY_NOAA %>% 
   ggplot(aes(x = tmin, y = tmax)) +
    labs(
-    x = "the year observed",
-    y = "average temperature"
+    x = "the minimum temperature",
+    y = "the maximum temperature"
   )+
   geom_hex()
 
@@ -78,7 +65,6 @@ ggplotly(hex)
 library(ggridges)
 density = NY_NOAA %>%
   filter(snow< 100, snow> 0) %>%
-  filter(year %in% 2000:2010)%>%
   ggplot(aes(x = snow))+
  labs(
     x = "snowfall"

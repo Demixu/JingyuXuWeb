@@ -5,5 +5,6 @@ title: "Welcome to my website"
 Hello, this is a personal website of Jingyu. Here is a brief introduction of the website.
 
 * Click button [Resume](Resume.html) to see the academic experince of me. 
-* Click button [Dashboard](Dashboard.html) to see graphs of dataset.
+* Click button Dashboard to see visualizations of different dataset:    
+ visualizations of [NY_NOAA](Dashboard.html) dataset is available now, which focus on weather of 2000-2010.
 * Click button [about](about.html) to see the future plan of the website
