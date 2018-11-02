@@ -47,7 +47,7 @@ library(hexbin)
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### tmax vs tmin for the full dataset
+### tmax vs tmin from 2000-2010
 ```{r}
 hex = NY_NOAA %>% 
   ggplot(aes(x = tmin, y = tmax)) +
