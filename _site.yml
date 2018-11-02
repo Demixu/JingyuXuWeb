@@ -3,10 +3,16 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
-    - text: "About"
+    - text: "Blue Print"
       href: about.html
-    - text: "Resume"
-      href: Resume.html
+    - text: "About me"
+      menu:
+      - text: Resume
+        href: Resume.html
+      - text: Linkin
+        href: https://www.linkedin.com/in/jingyu-xu-ab606a141/
+      - text: Facebook
+        href: https://www.facebook.com/jingyu.xu.522
     - text: "Dashboard"
       menu:
       - text: NY-NOAA
