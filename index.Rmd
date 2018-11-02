@@ -1,7 +1,9 @@
 ---
-title: "Holy cow!"
+title: "Welcome to my website"
 ---
 
-### I have a webpage!
+Hello, this is a personal website of Jingyu. Here is a brief introduction of the website.
 
-And I can put all kinds of stuff on it!
+* Click button "Resume" to see the academic experince of me. 
+* Click button "Dashboard" to see graphs of dataset.
+* Click button "about" to see the future plan of the website
