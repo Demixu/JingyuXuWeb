@@ -5,7 +5,6 @@ title: "Welcome to my website"
 
 ####Hello, this is a personal website of Jingyu. Here is a brief introduction of the website.
 
-<<<<<<< HEAD
 * Click button "about me " to know more about me, with [Resume](Resume.html), [Linkin](https://www.linkedin.com/in/jingyu-xu-ab606a141/) and [facebook](https://www.facebook.com/jingyu.xu.522) in the menu.
 * Click button Dashboard to see visualizations of different dataset:    
  visualizations of [NY_NOAA](Dashboard.html) dataset is available now, which focus on weather of 2000-2010.
@@ -14,12 +13,4 @@ title: "Welcome to my website"
 * Click the [github](http://github.com/Demixu/) button to see my projects.
 
 
-=======
-* Click button [Resume](Resume.html) to see the academic experience of me. 
-* Click button Dashboard to see visualizations of different dataset:    
- visualizations of [NY_NOAA](Dashboard.html) dataset is available now, which focus on weather of 2000-2010.
-* Click button [about](about.html) to see the future plan of the website
 
-Here is some additional personal information for your kind concern:
-* [email](mailto:<jx2371@cumc.columbia.edu>)
->>>>>>> 39aecaaf07af59dfacdc0071e5ba3820e5f48325
