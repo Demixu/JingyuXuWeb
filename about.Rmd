@@ -1,4 +1,4 @@
 ---
 title: "Future plan of the website"
 ---
-The website is originally established for the homework 4 of P8104. And in the future, more project concerning data analysis will be published on it.
+The website is originally established for the homework 4 of P8104. And in the future, more project concerning data analysis will be published on it. As a student majoring biostatistics, I am enthusiastic to utilize the statistics tool to address medical problems.
